@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Study Hub</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+background:#020617;
+color:white;
+transition:.4s;
+overflow-x:hidden;
+}
+
+body.light{
+background:#f4f4f4;
+color:#111;
+}
+
+body.light .card{
+background:white;
+color:black;
+}
+
+body.light .search input{
+background:white;
+color:black;
+border:1px solid #ccc;
+}
+
+body.light .clock{color:#333;}
+
+body.light footer{
+background:#ddd;
+color:black;
+}
+
+/* Hero */
+
+.hero{
+padding:70px 20px;
+text-align:center;
+animation:fadeDown 1s ease;
+}
+
+.hero h1{
+font-size:52px;
+background:linear-gradient(90deg,#fff,#ffe082,#ffbf00);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+margin-top:15px;
+font-size:20px;
+color:#facc15;
+}
+
+.clock{
+margin-top:15px;
+font-size:18px;
+font-weight:bold;
+}
+
+/* Buttons */
+
+.buttons{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+button{
+padding:15px 28px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+font-weight:bold;
+background:#FCEEA8;
+transition:.3s;
+position:relative;
+overflow:hidden;
+}
+
+button:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(255,191,0,.4);
+}
+
+/* Search */
+
+.search{
+display:flex;
+justify-content:center;
+margin:20px;
+}
+
+.search input{
+width:340px;
+padding:14px;
+border-radius:12px;
+border:none;
+background:#111827;
+color:white;
+font-size:16px;
+}
+
+/* Progress */
+
+.progress-container{
+width:90%;
+max-width:700px;
+margin:20px auto;
+}
+
+.progress-bg{
+background:#1f2937;
+height:12px;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#06b6d4,#facc15);
+transition:.6s;
+}
+
+.progress-text{
+text-align:center;
+margin-top:10px;
+color:#facc15;
+}
+
+/* Cards */
+
+.title{
+text-align:center;
+font-size:38px;
+margin:50px 0 30px;
+background:linear-gradient(90deg,#fff,#ffe082,#ffbf00);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:0 35px 60px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.08);
+transition:.35s;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+transition:.6s;
+}
+
+.card:hover::before{
+left:100%;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,.45);
+}
+
+.card.active{
+border:2px solid #facc15;
+box-shadow:0 0 20px rgba(250,204,21,.5);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#facc15;
+}
+
+.card ul{
+line-height:1.9;
+}
+
+/* Toast */
+
+.toast{
+position:fixed;
+top:20px;
+right:-300px;
+background:#16a34a;
+padding:15px 20px;
+border-radius:12px;
+color:white;
+transition:.5s;
+z-index:999;
+}
+
+.toast.show{
+right:20px;
+}
+
+/* Footer */
+
+footer{
+background:#111827;
+padding:20px;
+text-align:center;
+}
+
+/* Animation */
+
+@keyframes fadeDown{
+from{
+opacity:0;
+transform:translateY(-40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:500px){
+.hero h1{
+font-size:34px;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="toast" id="toast">Welcome Back Shubham 🚀</div>
+
+<section class="hero">
+
+<h1 id="heading">Welcome to AI Study Hub</h1>
+
+<p>Start your smart learning journey with AI-powered tools.</p>
+
+<div class="clock" id="clock"></div>
+
+<div class="buttons">
+
+<button id="startBtn">Let's Get Started 🚀</button>
+
+<button id="themeBtn">🌙 Theme</button>
+
+</div>
+
+</section>
+
+<div class="search">
+<input type="text" id="searchBox" placeholder="Search Study Materials...">
+</div>
+
+<div class="progress-container">
+<div class="progress-bg">
+<div class="progress" id="progressBar"></div>
+</div>
+<div class="progress-text" id="progressText">Progress : 0%</div>
+</div>
+
+<h2 class="title" id="mainOptions">🎯 Main Options</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>📚 Study Materials</h3>
+
+<ul>
+<li>Physics Notes</li>
+<li>Math Formulas</li>
+<li>C++ Notes</li>
+<li>JavaScript Notes</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🤖 AI Tools</h3>
+
+<ul>
+<li>Notes Generator</li>
+<li>Quiz Maker</li>
+<li>Doubt Solver</li>
+<li>AI Summary</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Practice</h3>
+
+<ul>
+<li>MCQ Tests</li>
+<li>Previous Papers</li>
+<li>Coding Problems</li>
+<li>Mock Interview</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>💻 Coding Zone</h3>
+
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>React Basics</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Dashboard</h3>
+
+<ul>
+<li>Learning Progress</li>
+<li>Daily Goals</li>
+<li>Achievements</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🏆 Challenges</h3>
+
+<ul>
+<li>30 Days JS</li>
+<li>React Practice</li>
+<li>Mini Projects</li>
+</ul>
+
+</div>
+
+</div>
+
+<footer>
+Made with ❤️ by Shubham | AI Study Hub
+</footer>
+
+<script>
+
+/* Elements */
+
+const startBtn=document.getElementById("startBtn");
+const heading=document.getElementById("heading");
+const themeBtn=document.getElementById("themeBtn");
+const cards=document.querySelectorAll(".card");
+const clock=document.getElementById("clock");
+const progressBar=document.getElementById("progressBar");
+const progressText=document.getElementById("progressText");
+const toast=document.getElementById("toast");
+const searchBox=document.getElementById("searchBox");
+
+/* Welcome Toast */
+
+setTimeout(()=>{
+toast.classList.add("show");
+
+setTimeout(()=>{
+toast.classList.remove("show");
+},2500);
+
+},700);
+
+/* Live Clock */
+
+function updateClock(){
+clock.innerText=new Date().toLocaleTimeString();
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+/* Theme Toggle */
+
+themeBtn.addEventListener("click",()=>{
+document.body.classList.toggle("light");
+
+themeBtn.innerText=document.body.classList.contains("light")
+?"☀️ Light":"🌙 Theme";
+
+});
+
+/* Start Button */
+
+startBtn.addEventListener("click",(e)=>{
+
+startBtn.innerText="Learning Started ✅";
+startBtn.style.background="#facc15";
+startBtn.style.color="black";
+
+heading.innerText="Your Learning Journey Begins!";
+
+document.getElementById("mainOptions").scrollIntoView({
+behavior:"smooth"
+});
+
+/* Ripple Effect */
+
+const ripple=document.createElement("span");
+
+ripple.style.position="absolute";
+ripple.style.width="20px";
+ripple.style.height="20px";
+ripple.style.borderRadius="50%";
+ripple.style.background="rgba(255,255,255,.5)";
+ripple.style.left=e.offsetX+"px";
+ripple.style.top=e.offsetY+"px";
+ripple.style.transform="scale(0)";
+ripple.style.transition=".5s";
+
+startBtn.appendChild(ripple);
+
+setTimeout(()=>{
+ripple.style.transform="scale(15)";
+ripple.style.opacity="0";
+},10);
+
+setTimeout(()=>{
+ripple.remove();
+},500);
+
+});
+
+/* Card Click */
+
+let completed=0;
+
+cards.forEach(card=>{
+
+card.addEventListener("click",()=>{
+
+cards.forEach(c=>c.classList.remove("active"));
+
+card.classList.add("active");
+
+if(!card.dataset.done){
+
+card.dataset.done="true";
+completed++;
+
+let percent=Math.round((completed/cards.length)*100);
+
+progressBar.style.width=percent+"%";
+
+progressText.innerText=`Progress : ${percent}%`;
+
+}
+
+});
+
+});
+
+/* Search Filter */
+
+searchBox.addEventListener("keyup",()=>{
+
+const value=searchBox.value.toLowerCase();
+
+cards.forEach(card=>{
+
+const text=card.innerText.toLowerCase();
+
+card.style.display=text.includes(value)?"block":"none";
+
+});
+
+});
+
+</script>
+
+</body>
+</html>

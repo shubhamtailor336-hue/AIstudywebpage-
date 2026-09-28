@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Study Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scrollBar"></div>
+
+<header>
+    <div class="logo">🤖AI Study Hub</div>
+
+    <nav id="navMenu">
+        <a href="#" class="active">Home</a>
+        <a href="#features">Features</a>
+        <a href="#resources">Resources</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div id="menuBtn" class="menu-btn">☰</div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 id="typing-text"></h1>
+        <p>Learn Smarter with AI-Powered Tools & Resources.</p>
+
+        <div class="hero-buttons">
+            <a href="start.html" class="btn">Get Started</a>
+        </div>
+    </div>
+</section>
+
+<section class="about reveal">
+    <h2>What is Artificial Intelligence?</h2>
+
+    <p>
+        Artificial Intelligence helps students learn faster with smart notes,
+        quizzes, personalized learning and intelligent study assistance.
+    </p>
+</section>
+
+<section class="features reveal" id="features">
+
+<h2 class="section-title">Key Features</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>Machine Learning</h3>
+<p>Learn predictive models and intelligent systems.</p>
+</div>
+
+<div class="feature-card">
+<h3>Natural Language Processing</h3>
+<p>Understand how AI processes human language.</p>
+</div>
+
+<div class="feature-card">
+<h3>Computer Vision</h3>
+<p>Discover how AI understands images and videos.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="resources reveal" id="resources">
+
+<h2 class="section-title">Programming Resources</h2>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search Programming Course...">
+</div>
+
+<div class="resource-grid">
+
+<div class="resource-card">
+<img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600" alt="">
+<h3>C++ Programming</h3>
+<p>Master OOP and Data Structures.</p>
+<a href="#">Learn More</a>
+</div>
+
+<div class="resource-card">
+<img src="https://media.istockphoto.com/id/2192134078/photo/all-programming-languages-with-computer-code-and-laptop-java-python-html-sql-php-ruby.jpg?s=1024x1024&w=is&k=20&c=x0QJVlr-M2aop8p05BW0Xc_wwCeqlLIytYyl3NInm8Y=" alt="">
+<h3>Python Programming</h3>
+<p>Web Development, AI and Automation.</p>
+<a href="#">Learn More</a>
+</div>
+
+<div class="resource-card">
+<img src="https://plus.unsplash.com/premium_photo-1675793715030-0584c8ec4a13?w=600" alt="">
+<h3>Java Programming</h3>
+<p>Enterprise and Android Development.</p>
+<a href="#">Learn More</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="stats reveal">
+
+<h2 class="section-title">Our Achievements</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3 id="studentCount">0</h3>
+<p>Students</p>
+</div>
+
+<div class="stat-card">
+<h3 id="notesCount">0</h3>
+<p>Notes</p>
+</div>
+
+<div class="stat-card">
+<h3 id="courseCount">0</h3>
+<p>Courses</p>
+</div>
+
+<div class="stat-card">
+<h3 id="successCount">0%</h3>
+<p>Success Rate</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="reviews reveal" id="reviews">
+
+<h2 class="section-title">Student Reviews</h2>
+
+<div class="review-grid">
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Amazing AI learning platform."</p>
+<h4>Rahul Sharma</h4>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Very useful for programming."</p>
+<h4>Priya Patel</h4>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐
+<p>"Clean UI and easy resources."</p>
+<h4>Aman Verma</h4>
+</div>
+
+</div>
+
+</section>
+
+<section class="pricing reveal">
+
+<h2 class="section-title">Pricing Plans</h2>
+
+<div class="price-grid">
+
+<div class="price-card">
+<h3>Free</h3>
+<h1>₹0</h1>
+<p>Basic Notes</p>
+<button>Select</button>
+</div>
+
+<div class="price-card popular">
+<h3>Pro</h3>
+<h1>₹299</h1>
+<p>Unlimited Notes + AI Tools</p>
+<button>Select</button>
+</div>
+
+<div class="price-card">
+<h3>Premium</h3>
+<h1>₹599</h1>
+<p>Everything Included</p>
+<button>Select</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact reveal" id="contact">
+
+<h2>Contact Us</h2>
+
+<input id="name" type="text" placeholder="Enter Name">
+
+<input id="email" type="email" placeholder="Enter Email">
+
+<textarea id="message" rows="5" placeholder="Enter Message"></textarea>
+
+<button id="submitBtn">Submit</button>
+
+</section>
+
+<footer>
+
+<h2>AI Study Hub</h2>
+
+<p>Learn Smarter with AI.</p>
+
+<div class="socials">
+🌐 📘 📸 ▶️
+</div>
+
+<p>©2026 AI Study Hub</p>
+
+</footer>
+
+<div id="toast">Message Sent Successfully 🚀</div>
+
+<button id="topBtn">⬆</button>
+
+<script>
+
+/* Typing */
+
+const text="Welcome to AI Study Hub";
+
+const typing=document.getElementById("typing-text");
+
+let i=0;
+
+function type(){
+
+if(i<text.length){
+
+typing.innerHTML+=text.charAt(i);
+
+i++;
+
+setTimeout(type,80);
+
+}
+
+}
+
+type();
+
+/* Mobile Menu */
+
+const menu=document.getElementById("menuBtn");
+
+const nav=document.getElementById("navMenu");
+
+menu.onclick=()=>nav.classList.toggle("show");
+
+/* Search */
+
+const search=document.getElementById("searchInput");
+
+const cards=document.querySelectorAll(".resource-card");
+
+search.addEventListener("keyup",()=>{
+
+const value=search.value.toLowerCase();
+
+cards.forEach(card=>{
+
+card.style.display=card.innerText.toLowerCase().includes(value)
+?"block":"none";
+
+});
+
+});
+
+/* Counter */
+
+function animate(id,target,symbol=""){
+
+let count=0;
+
+const el=document.getElementById(id);
+
+const speed=target/120;
+
+function update(){
+
+count+=speed;
+
+if(count<target){
+
+el.innerText=Math.floor(count)+symbol;
+
+requestAnimationFrame(update);
+
+}else{
+
+el.innerText=target+symbol;
+
+}
+
+}
+
+update();
+
+}
+
+animate("studentCount",5000,"+");
+animate("notesCount",1200,"+");
+animate("courseCount",100,"+");
+animate("successCount",95,"%");
+
+/* Contact */
+
+const submit=document.getElementById("submitBtn");
+
+const toast=document.getElementById("toast");
+
+submit.onclick=()=>{
+
+const name=document.getElementById("name").value;
+const email=document.getElementById("email").value;
+const msg=document.getElementById("message").value;
+
+if(name===""||email===""||msg===""){
+
+alert("Please fill all fields");
+
+return;
+
+}
+
+toast.classList.add("show");
+
+setTimeout(()=>toast.classList.remove("show"),2500);
+
+};
+
+/* Progress */
+
+const bar=document.getElementById("scrollBar");
+
+window.addEventListener("scroll",()=>{
+
+const h=document.documentElement.scrollHeight-window.innerHeight;
+
+bar.style.width=(window.scrollY/h)*100+"%";
+
+});
+
+/* Top Button */
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+topBtn.style.display=window.scrollY>300?"block":"none";
+
+});
+
+topBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+/* Reveal */
+
+const reveals=document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll",()=>{
+
+reveals.forEach(el=>{
+
+const top=el.getBoundingClientRect().top;
+
+if(top<window.innerHeight-80){
+
+el.classList.add("active");
+
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
